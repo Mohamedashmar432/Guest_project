@@ -1,0 +1,492 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f8;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .registration-header {
+            padding: 15px 40px;
+            background-color: #f5f5f8;
+            color: #aaa;
+        }
+
+        header {
+            background-color: #7f88de;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sign-in-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-in-btn span {
+            margin-right: 5px;
+        }
+
+        .hero {
+            background-color: #7f88de;
+            position: relative;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            max-width: 50%;
+            padding-top: 40px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .start-btn, .contact-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .start-btn {
+            background-color: #11253e;
+            color: white;
+        }
+
+        .contact-btn {
+            background-color: transparent;
+            color: #11253e;
+            border: 1px solid #11253e;
+        }
+
+        .btn-arrow {
+            margin-left: 5px;
+        }
+
+        .app-preview {
+            position: relative;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-dashboard {
+            background-color: #f5f5f8;
+            border-radius: 10px 0px 0px 10px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            top: 5px;
+            right: -40px;
+        }
+
+        .mobile-preview {
+            background-color: #f5f5f8;
+            border-radius: 15px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1),
+                        2px 0 5px rgba(0, 0, 0, 0.1),
+                        0 -2px 5px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            height: 450px;
+            position: absolute;
+            top: 100px;
+            right: 450px;
+            padding: 15px;
+        }
+
+        .chart-preview {
+            background-color: #e2dada ;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            bottom: 10px;
+            padding: 15px;
+            height: 100px;
+            width: 600px;
+            margin: 0px 0px 10px 100px;
+            padding: 10px 200px 0px 30px;
+            border-radius: 5px;
+        }
+
+        .portfolio-list{
+            height: 200px;
+            width: 600px;
+            margin: 5px 0px 5px 100px;
+            padding: 6px 200px 0px 30px;
+            background-color: #e2dada ;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-card {
+            background-color: #7B7FDD;
+            border-radius: 10px;
+            padding: 15px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-value {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .portfolio-trend {
+            color: #4CD964;
+            font-size: 14px;
+        }
+
+        .stock-list {
+            margin-top: 20px;
+        }
+
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px;
+            background-color: #F2F2F7;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .stock-details {
+            flex-grow: 1;
+            padding: 0 10px;
+        }
+
+        .stock-name {
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .stock-price {
+            font-size: 8px;
+            color: #777;
+        }
+
+        .mobile-header {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .mobile-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .mobile-container{
+            height: auto;
+            width: 200px;
+            padding: 10px 20px 30px 20px;
+            background-color: #7f88de;
+            border-radius: 10px;
+            margin-bottom: 40px; 
+        }
+
+        .mobile-container__one{
+            color: white;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .mobile-container__two{
+            color: white;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .mobile-subtitle {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .mobile-stocks {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        .mobile-stock {
+            background-color: #000000;
+            border-radius: 8px;
+            padding: 30px 25px 5px 25px;
+            color: white;
+        }
+
+        .mobile-stock i{
+            margin-bottom: 50px;
+        }
+
+        .mobile-stock.red {
+            background-color: #FF3B30;
+        }
+
+        .stock-symbol {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .stock-value {
+            font-size: 12px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .stock-tag {
+            background-color: #000000;
+            color: white;
+            font-size: 15px;
+            padding: 5px 100px 5px 10px;
+            border-radius: 10px;
+        }
+
+        .stock-tag__sub{
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        .chart-value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .chart-trend {
+            color: #4CD964;
+            font-size: 12px;
+        }
+
+        .chart-image {
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to right, transparent, #4CD964, transparent);
+            border-radius: 8px;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .buy-btn, .sell-btn {
+            padding: 5px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .buy-btn {
+            background-color: #262626;
+            color: white;
+        }
+
+        .sell-btn {
+            background-color: #eaeaea;
+            color: black;
+            border: 1px solid #ccc;
+        }
+
+        .sell-btn:hover {
+            background-color: #262626;
+            color: white;
+        }
+
+        .footer {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 150px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #7B7FDD;
+        }
+
+        .footer-col.address {
+            grid-column: 4;
+            text-align: right;
+        }
+
+        .address p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            padding: 20px 40px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: #777;
+            text-decoration: none;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding-top: 20px;
+            }
+
+            .app-preview {
+                display: none;
+            }
+
+            .sign-in-btn{
+                display: none;
+            }
+
+            .footer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-col.address {
+                grid-column: span 2;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }

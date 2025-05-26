@@ -1,0 +1,335 @@
+  :root {
+            --primary-color: #4959ea;
+            --primary-light: #93c5fd;
+            --text-color: #333;
+            --bg-color: #fff;
+            --form-bg: #e0e7ff;
+            --input-bg: #fff;
+            --divider-color: #e5e7eb;
+            --button-text: #fff;
+            --fingerprint-bg: #e6f0ff;
+            --fingerprint-color: #3b82f6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --subtle-text: #6b7280;
+            --success-color: #10b981;
+        }
+
+        .dark-mode {
+            --primary-color: #3b82f6;
+            --primary-light: #1e40af;
+            --text-color: #f3f4f6;
+            --bg-color: #000;
+            --form-bg: #394570;
+            --input-bg: #1f2937;
+            --divider-color: #374151;
+            --button-text: #fff;
+            --fingerprint-bg: #374151;
+            --fingerprint-color: #3b82f6;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --subtle-text: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 10px 10px var(--shadow-color);
+            border-radius: 5px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: var(--form-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 14px;
+            color: var(--subtle-text);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-button {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--divider-color);
+            background-color: #f5f9fe;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .social-button:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: var(--subtle-text);
+            font-size: 14px;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--divider-color);
+        }
+
+        .divider::before {
+            margin-right: 10px;
+        }
+
+        .divider::after {
+            margin-left: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--divider-color);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .password-field {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--subtle-text);
+            cursor: pointer;
+        }
+
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            color: var(--button-text);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #2563eb;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            color: var(--button-text);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0 15px;
+            transition: background-color 0.2s;
+        }
+
+        .register-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .bottom-links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .bottom-links a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .sensor-text {
+            font-size: 12px;
+            color: var(--subtle-text);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .page-indicator {
+            width: 30px;
+            height: 4px;
+            background-color: var(--divider-color);
+            margin: 0 3px;
+            border-radius: 2px;
+        }
+
+        .page-indicator.active {
+            background-color: #000;
+        }
+
+        .dark-mode .page-indicator.active {
+            background-color: #fff;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            accent-color: var(--primary-color);
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--divider-color);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 16px;
+            min-height: 80px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .note {
+            font-size: 12px;
+            color: var(--subtle-text);
+            margin-top: 5px;
+            line-height: 1.4;
+        }
