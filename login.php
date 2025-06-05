@@ -1,23 +1,26 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
-require 'db.php';
+require 'src/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
-    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, name, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows === 1) {
-        $stmt->bind_result($id, $username, $hashed_password);
+        $stmt->bind_result($id, $name, $hashed_password);
         $stmt->fetch();
 
         if (password_verify($password, $hashed_password)) {
-            $_SESSION['user'] = $username;
-            header("Location: dashboard.php");
+            $_SESSION['user'] = $name;
+            header("Location: home.php");
             exit;
         } else {
             echo "Invalid password.";
@@ -66,22 +69,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <div class="divider">Or</div>
+        <form method="POST" action="login.php" >
 
         <div class="input-group">
-            <input type="text" placeholder="Email/Phone Number">
+            <input type="text" placeholder="Email/Phone Number" name="email">
         </div>
 
         <div class="input-group password-field">
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password" name="password">
             <button class="password-toggle">&#128065;</button>
         </div>
         <br>
         <br>
+        <button class="login-button" type="submit">Log In</button>
+        </form>
 
-        <a href="home.html" style="text-decoration: none;"><button class="login-button">Log In</button></a>
-
+        
         <div class="bottom-links">
-            <a href="signup.html">Don't have account? Sign up</a>
+            <a href="signup.php">Don't have account? Sign up</a>
             <!-- <a href="#">Use Password</a> -->
         </div>
 

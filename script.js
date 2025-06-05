@@ -94,10 +94,10 @@
                 alert('Please agree to the Terms and Privacy Statement');
             }
             
-            if (isValid) {
-                alert('Registration form submitted successfully!');
-                // Here you would typically submit the form or call an API
-            }
+            // if (isValid) {
+            //     alert('Registration form submitted successfully!');
+            //     // Here you would typically submit the form or call an API
+            // }
         });
         
 // Menu-bar

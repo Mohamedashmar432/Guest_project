@@ -1,21 +1,28 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
-require 'db.php';
+require 'src/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST["username"]);
+    $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
     $password = $_POST["password"];
+    $phone = $_POST["phone"];
+    $dob = $_POST["dob"];
+    $policy = $_POST["policy"];
 
-    if (!empty($username) && !empty($email) && !empty($password)) {
+    if (!empty($name) && !empty($email) && !empty($password) && !empty($phone) && !empty($dob) && !empty($policy)) {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $policy = 1;
 
-        $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $username, $email, $hashed_password);
+        $stmt = $conn->prepare("INSERT INTO users (name, email, password, phone, dob, policy) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $name, $email, $hashed_password, $phone, $dob, $policy);
 
         if ($stmt->execute()) {
-            $_SESSION['user'] = $username;
-            header("Location: dashboard.php");
+            $_SESSION['user'] = $name;
+            header("Location: login.php");
         } else {
             echo "Signup failed: " . $stmt->error;
         }
@@ -51,17 +58,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-container">
             <div class="form-title">Personal Information</div>
+            <form method="POST" action="signup.php">
             
             <div class="input-group">
-                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Full Name" name="name">
             </div>
             
             <div class="input-group">
-                <input type="email" placeholder="Email">
+                <input type="email" placeholder="Email" name="email">
             </div>
             
             <div class="input-group password-field">
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" name="password">
                 <button class="password-toggle" id="passwordToggle">&#128065;</button>
             </div>
             
@@ -71,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             
             <div class="input-group">
-                <input type="tel" placeholder="Phone Number (Optional)">
+                <input type="tel" placeholder="Phone Number (Optional)" name="phone">
             </div>
 
             <div class="input-group">
@@ -88,15 +96,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="privacyCheck">
+                <input type="checkbox" id="privacyCheck" name="policy">
                 <label for="privacyCheck">I understand the Privacy Statement</label>
             </div>
+            <button class="register-button" type="submit">Register</button>
+
         </div>
+        </form>
 
-        <a href="login.html" style="text-decoration: none;"><button class="register-button">Register</button></a>
-
+        
         <div class="bottom-links">
-            <a href="login.html">Already have an account? Sign in</a>
+            <a href="login.php">Already have an account? Sign in</a>
         </div>
 
         <div class="pagination">
